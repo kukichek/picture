@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Square extends Figure {
+public class Square extends Fragment {
     @Column(name = "inner_char")
     private Character character;
 

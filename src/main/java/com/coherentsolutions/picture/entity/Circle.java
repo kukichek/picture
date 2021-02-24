@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class Circle extends Figure {
+public class Circle extends Fragment {
     public Circle(Border border) {
         this.border = border;
     }

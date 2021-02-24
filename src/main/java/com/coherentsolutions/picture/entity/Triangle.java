@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Triangle extends Figure {
+public class Triangle extends Fragment {
     @Column
     private String color = "#000000";
 
