@@ -1,5 +1,6 @@
-package com.coherentsolutions.picture.entity;
+package com.coherentsolutions.picture.entity.fragment;
 
+import com.coherentsolutions.picture.entity.Fragment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

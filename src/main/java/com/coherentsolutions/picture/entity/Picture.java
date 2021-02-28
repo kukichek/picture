@@ -1,5 +1,6 @@
 package com.coherentsolutions.picture.entity;
 
+import com.coherentsolutions.picture.entity.fragment.FigureGroup;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

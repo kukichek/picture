@@ -1,5 +1,6 @@
-package com.coherentsolutions.picture.entity;
+package com.coherentsolutions.picture.entity.fragment;
 
+import com.coherentsolutions.picture.entity.Fragment;
 import com.coherentsolutions.picture.entity.enumeration.Orientation;
 import lombok.*;
 
@@ -12,7 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class FigureGroup extends Fragment {
-    @OneToMany(mappedBy = "parentFigureGroup", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "parent_figure_group_id")
     private List<Fragment> fragments;
 
     @Column(nullable = false)
@@ -37,20 +39,5 @@ public class FigureGroup extends Fragment {
     @Override
     public void draw() {
 
-    }
-
-    public void setFragments(List<Fragment> fragments) {
-        this.fragments = fragments;
-        setFragmentsParentGroup();
-    }
-
-    private void setFragmentsParentGroup() {
-        if (fragments != null) {
-            for (Fragment fragment: fragments) {
-                if (fragment != null) {
-                    fragment.setParentFigureGroup(this);
-                }
-            }
-        }
     }
 }
