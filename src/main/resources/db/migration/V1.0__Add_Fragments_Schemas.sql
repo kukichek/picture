@@ -3,6 +3,7 @@ use picture;
 create table `fragment` (
     `fragment_id`             bigint      not null    auto_increment,
     `parent_figure_group_id`  bigint,
+    `queue_order`                   int,
 
     primary key `pk_fragment_fragment_id` (`fragment_id`)
 ) engine = InnoDB;
