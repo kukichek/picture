@@ -15,22 +15,9 @@ public class Circle extends Fragment {
         this.border = border;
     }
 
-    @Column(nullable = false)
-    private Integer borderId;
-
-    @Transient
+    @Column
+    @Enumerated(EnumType.STRING)
     private Border border = Border.SOLID;
-
-    @PostUpdate
-    @PostLoad
-    private void fillBorder() {
-        this.border = Border.of(borderId);
-    }
-
-    @PrePersist
-    private void fillBorderId() {
-        this.borderId = border.getId();
-    }
 
     @Override
     public void draw() {

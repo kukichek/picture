@@ -17,24 +17,10 @@ public class FigureGroup extends Fragment {
     @JoinColumn(name = "parent_figure_group_id")
     private List<Fragment> fragments;
 
-    @Column(nullable = false)
-    private Integer orientationId;
-
-    @Transient
+    @Column
     @NonNull
+    @Enumerated(EnumType.STRING)
     private Orientation orientation;
-
-    @PostLoad
-    @PostUpdate
-    public void fillOrientation() {
-        this.orientation = Orientation.of(orientationId);
-    }
-
-    @PrePersist
-    @PreUpdate
-    public void fillOrientationId() {
-        this.orientationId = orientation.getId();
-    }
 
     @Override
     public void draw() {

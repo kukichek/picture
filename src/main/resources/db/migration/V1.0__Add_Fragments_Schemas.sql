@@ -1,3 +1,5 @@
+use picture;
+
 create table `fragment` (
     `fragment_id`             bigint      not null    auto_increment,
     `parent_figure_group_id`  bigint,
@@ -7,7 +9,7 @@ create table `fragment` (
 
 create table `figure_group` (
     `fragment_id`             bigint      not null    auto_increment,
-    `orientation_id`          tinyint     not null,
+    `orientation`             char(3)     not null,
 
     primary key `pk_figure_group_fragment_id` (`fragment_id`)
 ) engine = InnoDB;
@@ -17,14 +19,9 @@ alter table `figure_group`
         foreign key (`fragment_id`)
             references `fragment` (`fragment_id`);
 
-alter table `figure_group`
-    add constraint `fk_figure_group_orientation_id`
-        foreign key (`orientation_id`)
-            references `orientation` (`orientation_id`);
-
 create table `circle` (
     `fragment_id`             bigint      not null    auto_increment,
-    `border_id`               tinyint     not null    default 1,
+    `border`                  varchar(6)  not null    default 1,
 
     primary key `pk_circle_fragment_id` (`fragment_id`)
 ) engine = InnoDB;
@@ -34,14 +31,9 @@ alter table `circle`
         foreign key (`fragment_id`)
             references `fragment` (`fragment_id`);
 
-alter table `circle`
-    add constraint `fk_circle_border_id`
-        foreign key (`border_id`)
-            references `border` (`border_id`);
-
 create table `square` (
     `fragment_id`             bigint      not null    auto_increment,
-    `inner_char`               char(1),
+    `inner_char`              char(1),
 
     primary key `pk_square_fragment_id` (`fragment_id`)
 ) engine = InnoDB;

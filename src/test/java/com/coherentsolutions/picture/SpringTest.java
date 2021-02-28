@@ -35,10 +35,10 @@ public class SpringTest {
     @Test
     public void setup() throws JsonProcessingException {
         Picture pictureToSave = new Picture("First", getRootFigureGroup());
-        String json = objectMapper.writeValueAsString(pictureToSave);
-        Picture picture = objectMapper.readValue(json, Picture.class);
-//        pictureRepository.save(pictureToSave);
-//
+//        String json = objectMapper.writeValueAsString(pictureToSave);
+//        Picture picture = objectMapper.readValue(json, Picture.class);
+        pictureRepository.save(pictureToSave);
+
 //        Optional<Picture> optionalPictureToFind = pictureRepository.findById(pictureToSave.getId());
 //
 //        Picture pictureToFind = optionalPictureToFind.orElseThrow(AssertionError::new);
