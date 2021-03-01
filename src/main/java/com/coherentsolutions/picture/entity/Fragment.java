@@ -4,7 +4,6 @@ import com.coherentsolutions.picture.entity.fragment.Circle;
 import com.coherentsolutions.picture.entity.fragment.FigureGroup;
 import com.coherentsolutions.picture.entity.fragment.Square;
 import com.coherentsolutions.picture.entity.fragment.Triangle;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
@@ -28,9 +27,6 @@ public abstract class Fragment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fragment_id")
     private Long id;
-
-    @Column(name = "queue_order")
-    private Integer queueOrder;
 
     public abstract void draw();
 }
