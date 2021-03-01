@@ -27,7 +27,7 @@ public class Picture {
     @NonNull
     private FigureGroup rootGroup;
 
-    @Column
+    @Column(updatable = false)
     @CreationTimestamp
     private Calendar createdAt;
 
